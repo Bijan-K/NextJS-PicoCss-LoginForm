@@ -10,9 +10,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <form>
-          <input type="text" />
-        </form>
+        <div>
+          <form>
+            <input type="text" />
+          </form>
+        </div>
+
         <h1>example</h1>
       </div>
     </>
