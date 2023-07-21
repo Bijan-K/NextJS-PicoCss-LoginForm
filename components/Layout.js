@@ -16,7 +16,7 @@ export default function Layout({ title, keywords, description, children }) {
 }
 
 Layout.defaultProps = {
-  title: 'Title',
+  title: 'Simple Login Page',
   keywords: 'markdown,preview,coding',
   description: 'markdown preview client',
 };

@@ -1,5 +1,36 @@
-.container {
+.mid {
+  display: block;
+  text-align: center;
+}
+.flex {
+  width: 80%;
   display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+.back {
+  margin-right: 12px;
+  float: right;
+  text-align: center;
+  width: max-content;
+}
+.logout {
+  width: 80%;
+  margin-left: 10%;
+  border-color: red;
+}
+.footer {
+  /* position: fixed;
+  left: 0;
+  bottom: 2%; */
+  width: 100%;
+  text-align: center;
+}
+.middle {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.margin {
+  margin-top: 25px;
 }
