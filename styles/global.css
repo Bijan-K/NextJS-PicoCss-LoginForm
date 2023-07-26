@@ -34,6 +34,10 @@
 .margin {
   margin-top: 25px;
 }
+.alert {
+  color: red;
+  font-size: smaller;
+}
 
 /* the pop up */
 .white-popup {

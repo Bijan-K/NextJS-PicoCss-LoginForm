@@ -1,5 +1,30 @@
 import Link from 'next/link';
+import { useState } from 'react';
 export default function SignUp() {
+  const [ValidPassword, setValidPassword] = useState(false);
+  const [ValidEmail, setValidEmail] = useState(false);
+
+  function validatePassword() {
+    const password = document.getElementById('password').value;
+    const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    if (pattern.test(password)) {
+      setValidPassword(false);
+    } else {
+      setValidPassword(true);
+    }
+  }
+
+  function validateEmail() {
+    const password = document.getElementById('email').value;
+    const pattern =
+      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (pattern.test(password)) {
+      setValidEmail(false);
+    } else {
+      setValidEmail(true);
+    }
+  }
+
   return (
     <article className="container">
       <Link href="/">
@@ -25,8 +50,10 @@ export default function SignUp() {
             id="email"
             name="email"
             placeholder="Email address"
+            onBlur={validateEmail}
             required
           />
+          {ValidEmail && <p className="alert">Please enter a valid email.</p>}
         </label>
 
         <div className="grid">
@@ -45,8 +72,15 @@ export default function SignUp() {
             id="password"
             type="password"
             placeholder="Password"
+            onBlur={validatePassword}
             required
           />
+          {ValidPassword && (
+            <p className="alert">
+              Your password must contain at least eight characters, one
+              uppercase letter, one lowercase letter, and one number.
+            </p>
+          )}
         </label>
         <Link href="/myaccount">
           <button type="submit">Register</button>
