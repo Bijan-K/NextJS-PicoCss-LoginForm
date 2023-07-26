@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function SignUp() {
   const [ValidPassword, setValidPassword] = useState(false);
   const [ValidEmail, setValidEmail] = useState(false);
@@ -25,14 +28,29 @@ export default function SignUp() {
     }
   }
 
+  const notify = () =>
+    toast(
+      'This functionality has not been implemented as the files deployed to netlify are immutable.',
+      {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      }
+    );
+
   return (
     <article className="container">
       <Link href="/">
         <button className="back outline width">back</button>
       </Link>
-      <h3 className="mid">Register</h3>
 
       <form className="flex">
+        <h3 className="mid">Register</h3>
         <div className="grid">
           <label for="name">
             Name:
@@ -82,9 +100,22 @@ export default function SignUp() {
             </p>
           )}
         </label>
-        <Link href="/myaccount">
+        <Link href="/Signup/#" onClick={notify}>
           <button type="submit">Register</button>
         </Link>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </form>
     </article>
   );

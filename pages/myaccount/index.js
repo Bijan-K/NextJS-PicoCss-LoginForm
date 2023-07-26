@@ -10,27 +10,27 @@ export default function Account() {
       <div className="middle">
         <h3 className="mid">Dashboard</h3>
         <label>
-          Username:
+          <span>Username:</span>
           <p>name</p>
         </label>
         <div className="grid">
           <label>
-            Name:
+            <span>Name:</span>
             <p>name</p>
           </label>
           <label>
-            Last name:
+            <span>Last name:</span>
             <p>name</p>
           </label>
         </div>
 
         <div className="grid">
           <label>
-            Email address:
+            <span>Email address:</span>
             <p>name</p>
           </label>
           <label>
-            Birth date:
+            <span>Birth date:</span>
             <p>name</p>
           </label>
         </div>

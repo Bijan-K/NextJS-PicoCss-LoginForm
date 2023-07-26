@@ -1,6 +1,23 @@
 import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+  const notify = () =>
+    toast(
+      'This functionality has not been implemented as the files deployed to netlify are immutable.',
+      {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+      }
+    );
+
   return (
     <>
       <article className="container">
@@ -17,9 +34,10 @@ export default function Login() {
             placeholder="Password"
           />
 
-          <Link href="/Login/#test-popup" data-effect="mfp-move-horizontal">
+          <Link href="/Login/#" onClick={notify}>
             forgot password?
           </Link>
+
           <Link href="/myaccount">
             <button className="margin" type="submit">
               Login
@@ -36,12 +54,23 @@ export default function Login() {
           </h6>
         </div>
       </article>
-      <div id="test-popup" class="white-popup mfp-with-anim mfp-hide">
-        You may put any HTML here. This is dummy copy. It is not meant to be
-        read. It has been placed here solely to demonstrate the look and feel of
-        finished, typeset text. Only for show. He who searches for meaning here
-        will be sorely disappointed.
+
+      <div className="popup-bg">
+        <div id="popup" class="popup"></div>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
