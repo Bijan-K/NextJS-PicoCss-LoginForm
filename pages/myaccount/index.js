@@ -3,35 +3,31 @@ import Link from 'next/link';
 export default function Account() {
   return (
     <article className="container">
-      <Link href="/">
-        <button className="back outline width">back</button>
-      </Link>
-
       <div className="middle">
         <h3 className="mid">Dashboard</h3>
         <label>
           <span>Username:</span>
-          <p>name</p>
+          <p>name1</p>
         </label>
         <div className="grid">
           <label>
             <span>Name:</span>
-            <p>name</p>
+            <p>ExmapleName</p>
           </label>
           <label>
             <span>Last name:</span>
-            <p>name</p>
+            <p>ExmapleLastName</p>
           </label>
         </div>
 
         <div className="grid">
           <label>
             <span>Email address:</span>
-            <p>name</p>
+            <p>Example@gmail.com</p>
           </label>
           <label>
             <span>Birth date:</span>
-            <p>name</p>
+            <p>1/1/1970</p>
           </label>
         </div>
       </div>

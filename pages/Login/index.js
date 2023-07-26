@@ -1,8 +1,23 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
+  const router = useRouter();
+
+  function validateForm(event) {
+    event.preventDefault();
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    if (username === 'name1' && password === '12345678Ab') {
+      router.push('/myaccount');
+    } else {
+      notifyInvalid();
+    }
+  }
+
   const notify = () =>
     toast(
       'This functionality has not been implemented as the files deployed to netlify are immutable.',
@@ -18,6 +33,18 @@ export default function Login() {
       }
     );
 
+  const notifyInvalid = () =>
+    toast.error('Invalid Credentials for logging in', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark',
+    });
+
   return (
     <>
       <article className="container">
@@ -27,9 +54,10 @@ export default function Login() {
 
         <form className="flex">
           <h3 className="mid">Login</h3>
-          <input type="text" placeholder="Username" />
+          <input type="text" id="username" placeholder="Username" />
           <input
             className="lowermargin"
+            id="password"
             type="password"
             placeholder="Password"
           />
@@ -38,11 +66,9 @@ export default function Login() {
             forgot password?
           </Link>
 
-          <Link href="/myaccount">
-            <button className="margin" type="submit">
-              Login
-            </button>
-          </Link>
+          <button type="submit" className="margin" onClick={validateForm}>
+            Login
+          </button>
         </form>
       </article>
       <article className="container">
@@ -54,10 +80,6 @@ export default function Login() {
           </h6>
         </div>
       </article>
-
-      <div className="popup-bg">
-        <div id="popup" class="popup"></div>
-      </div>
 
       <ToastContainer
         position="top-right"

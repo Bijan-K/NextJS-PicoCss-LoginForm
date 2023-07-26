@@ -90,7 +90,7 @@ export default function SignUp() {
             id="password"
             type="password"
             placeholder="Password"
-            onBlur={validatePassword}
+            onChange={validatePassword}
             required
           />
           {ValidPassword && (
